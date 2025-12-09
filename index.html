@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shops at 69th Street - Upper Darby's Premier Shopping Destination</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(26, 58, 82, 0.7), rgba(45, 90, 123, 0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500"><rect fill="%23f0f0f0" width="1200" height="500"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #ff5252;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a3a52;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #2d5a7b;
+            margin-bottom: 0.5rem;
+        }
+
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .store-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b6b;
+            transition: all 0.3s;
+        }
+
+        .store-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-left-color: #ff5252;
+        }
+
+        .store-card h3 {
+            color: #1a3a52;
+            margin-bottom: 0.5rem;
+        }
+
+        .store-category {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .info-section {
+            background: #f0f5f9;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .info-box h4 {
+            color: #2d5a7b;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #2d5a7b;
+        }
+
+        .testimonial p {
+            margin-bottom: 1rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+            color: #1a3a52;
+        }
+
+        footer {
+            background: #1a3a52;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .hours-table th, .hours-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hours-table th {
+            background: #2d5a7b;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <nav>
+            <div class="logo">🛍️ The Shops at 69th Street</div>
+            <ul>
+                <li><a href="#stores">Stores</a></li>
+                <li><a href="#hours">Hours</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>The Shops at 69th Street</h1>
+        <p>Philadelphia's Premier Open-Air Shopping Destination</p>
+        <button class="cta-button">Visit Us Today</button>
+        <button class="cta-button">Get Directions</button>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container">
+        <h2 class="section-title">Why Shop With Us?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🏪</div>
+                <h3>60+ Stores</h3>
+                <p>Extensive selection of retail, fashion, and entertainment options</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🅿️</div>
+                <h3>2,000+ Parking Spaces</h3>
+                <p>Convenient parking with wheelchair accessible areas</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚇</div>
+                <h3>Transit Access</h3>
+                <p>Direct SEPTA Rail connection with 34,000+ daily passengers</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Dining & Entertainment</h3>
+                <p>Multiple dining options and entertainment venues</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anchor Stores Section -->
+    <section id="stores" class="container">
+        <h2 class="section-title">Featured Anchor Stores</h2>
+        <div class="stores-grid">
+            <div class="store-card">
+                <h3>5 Below</h3>
+                <p class="store-category">Variety</p>
+            </div>
+            <div class="store-card">
+                <h3>Old Navy</h3>
+                <p class="store-category">Fashion</p>
+            </div>
+            <div class="store-card">
+                <h3>H&M</h3>
+                <p class="store-category">Fashion</p>
+            </div>
+            <div class="store-card">
+                <h3>Gap Outlet</h3>
+                <p class="store-category">Fashion</p>
+            </div>
+            <div class="store-card">
+                <h3>Ross Dress for Less</h3>
+                <p class="store-category">Fashion</p>
+            </div>
+            <div class="store-card">
+                <h3>Foot Locker</h3>
+                <p class="store-category">Shoes</p>
+            </div>
+            <div class="store-card">
+                <h3>Rite Aid</h3>
+                <p class="store-category">Pharmacy</p>
+            </div>
+            <div class="store-card">
+                <h3>Burlington Coat Factory</h3>
+                <p class="store-category">Fashion</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours & Location -->
+    <section id="hours" class="container">
+        <h2 class="section-title">Hours & Location</h2>
+        <div class="info-section">
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>📍 Address</h4>
+                    <p>100 S 69th St<br>Upper Darby, PA 19082</p>
+                </div>
+                <div class="info-box">
+                    <h4>📞 Phone</h4>
+                    <p><a href="tel:2154434325" style="color: #2d5a7b; text-decoration: none;">(215) 443-4325</a></p>
+                </div>
+                <div class="info-box">
+                    <h4>⏰ Hours</h4>
+                    <p>Monday - Sunday<br>9:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 3rem; color: #1a3a52;">Weekly Hours</h3>
+        <table class="hours-table">
+            <thead>
+                <tr>
+                    <th>Day</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>9:00 AM - 9:00 PM</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="container">
+        <h2 class="section-title">What Customers Say</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Great selection of stores and easy parking!"</p>
+                <div class="testimonial-author">- Sarah M.</div>
+            </div>
+            <div class="testimonial">
+                <p>"Close to home with variety of shopping needs. Love it!"</p>
+                <div class="testimonial-author">- John D.</div>
+            </div>
+            <div class="testimonial">
+                <p>"Good deals and priced to budget. Best place in Upper Darby!"</p>
+                <div class="testimonial-author">- Maria G.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="info-section">
+            <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                Have questions? Reach out to us!
+            </p>
+            <div style="max-width: 500px; margin: 0 auto;">
+                <form style="display: grid; gap: 1rem;">
+                    <input type="text" placeholder="Your Name" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                    <input type="email" placeholder="Your Email" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;">
+                    <textarea placeholder="Your Message" rows="4" required style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 The Shops at 69th Street. All rights reserved.</p>
+        <p>100 S 69th St, Upper Darby, PA 19082 | (215) 443-4325</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Open Daily 9 AM - 9 PM</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
